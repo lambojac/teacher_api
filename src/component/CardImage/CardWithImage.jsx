@@ -1,6 +1,6 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
-import iamge from '../../Assest/Dashboard/Teacher.png'
+
 import './cardwithimage.css'
 const CardWithImage = ({imagePath,totalNumber,labelCard}) => {
   return (

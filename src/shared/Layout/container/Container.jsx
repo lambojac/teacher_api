@@ -23,6 +23,7 @@ export default function CustomContainer({
   maxWidth,
   paperImage,
   paperImageContainer = false,
+  handleSubmit
 }) {
   const styles = {
     paperContainer: {
@@ -93,6 +94,7 @@ export default function CustomContainer({
                     buttonVariant={"contained"}
                     setSize={"large"}
                     buttonLabel={"Login"}
+                    handleCLick={handleSubmit}
                   />
                 </Grid>
               </Stack>

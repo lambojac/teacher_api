@@ -12,7 +12,7 @@ const SideNavBar = () => {
       backgroundImage: `url(${image})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      height: "100vh",
+      height: "120vh",
       width:"30em"
       
     },
