@@ -10,23 +10,23 @@ export const authRoute=[
     component:<Login/>
   },
   {
-    path:'/dashboard',
+    path:'dashboard',
     component:<Dashboard/>
   },
   {
-    path:'/teacher',
+    path:'teacher',
     component:<Dashboard/>
   },
   {
-    path:'/topic',
+    path:'topic',
     component:<Dashboard/>
   },
   {
-    path:'/question-choice',
+    path:'question-choice',
     component:<Dashboard/>
   },
   {
-    path:'/setting',
+    path:'setting',
     component:<Dashboard/>
   }
 

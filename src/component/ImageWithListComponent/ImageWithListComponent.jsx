@@ -7,10 +7,11 @@ import "./imagewithlist.css";
 import DropDownMenu from "../../shared/DropDownMenu/DropDownMenu";
 import QuestionComponent from "../QuestionComponent/QuestionComponent";
 import InputLabel from "../../shared/InputLabel/InputLabel";
+import ScrollComponent from "../ScrollComponent/ScrollComponent";
 
 const ImageWithListComponent = ({
   tableType,
-  questionType = false,
+  questionType = "table",
   searchType = true,
   setImage,
   labelList,
@@ -18,6 +19,12 @@ const ImageWithListComponent = ({
   tableHead,
   cellData,
   optionType = false,
+  setting = false,
+  setType,
+  settingPlaceholder1,
+  settingPlaceholder2,
+  settingPlaceholder3,
+  
 }) => {
   return (
     <Box className="Image-with-list-container">
@@ -46,12 +53,17 @@ const ImageWithListComponent = ({
             <ButtonLabel
               buttonLabel={buttonLabel}
               setSize="medium"
-              loginType={false}
+              styles={{
+                fontSize: "1.2em",
+                width: "15em",
+                backgroundColor: "#ebad00",
+                color: "white",
+              }}
             />
           </Box>
         )}
       </Box>
-      {optionType ==="option" && (
+      {optionType === "option" && (
         <Box>
           <Grid container direction={"row"} spacing={4}>
             <Grid item xs={6} sm={6} md={4} lg={4} xl={4}>
@@ -66,7 +78,7 @@ const ImageWithListComponent = ({
           </Grid>
         </Box>
       )}
-      {!questionType && (
+      {questionType === "table" && (
         <Box padding={3}>
           <DataTable
             cellData={cellData}
@@ -75,37 +87,136 @@ const ImageWithListComponent = ({
           />
         </Box>
       )}
-      {questionType && (
+      {questionType === "question-choice" && (
+        <ScrollComponent styles={{ height: "33em", padding: "1em" }}>
+          <Box padding={4}>
+            <Grid container spacing={5}>
+              <Grid item lg={12} md={12} xl={12}>
+                <QuestionComponent
+                  setType={"default"}
+                  setPrimaryText={"QUESTION1:"}
+                  setSecondarytext={"MULTIPLE CHOICE"}
+                  setDetails={
+                    "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"
+                  }
+                />
+              </Grid>
+              <Grid item lg={6} md={6} xl={6}>
+                <QuestionComponent
+                  setType={"correct"}
+                  setPrimaryText={"CHOICE 1:"}
+                  setSecondarytext={"Correct"}
+                  setDetails={
+                    "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"
+                  }
+                />
+              </Grid>
+              <Grid item lg={6} md={6} xl={6}>
+                <QuestionComponent
+                  setType={"wrong"}
+                  setPrimaryText={"CHOICE 2:"}
+                  setSecondarytext={"Wrong"}
+                  setDetails={
+                    "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"
+                  }
+                />
+              </Grid>
+              <Grid item lg={6} md={6} xl={6}>
+                <QuestionComponent
+                  setType={"wrong"}
+                  setPrimaryText={"CHOICE 3:"}
+                  setSecondarytext={"Wrong"}
+                  setDetails={
+                    "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"
+                  }
+                />
+              </Grid>
+              <Grid item lg={6} md={6} xl={6}>
+                <QuestionComponent
+                  setType={"wrong"}
+                  setPrimaryText={"CHOICE 4:"}
+                  setSecondarytext={"Wrong"}
+                  setDetails={
+                    "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"
+                  }
+                />
+              </Grid>
+            </Grid>
+          </Box>
+        </ScrollComponent>
+      )}
+      {questionType === "question-answer" && (
         <Box padding={3}>
           <Grid container spacing={5}>
             <Grid item lg={12} md={12} xl={12}>
-              <QuestionComponent setType={"default"} setPrimaryText={"QUESTION1:"} setSecondarytext={"MULTIPLE CHOICE"} setDetails={"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"}/>
+              <QuestionComponent
+                setType={"default"}
+                setPrimaryText={"QUESTION1:"}
+                setSecondarytext={"MULTIPLE CHOICE"}
+                setDetails={
+                  "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"
+                }
+              />
             </Grid>
-            <Grid item lg={6} md={6} xl={6}>
-              <QuestionComponent setType={"correct"} setPrimaryText={"CHOICE 1:"} setSecondarytext={"Correct"} setDetails={"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"} />
-            </Grid>
-            <Grid item lg={6} md={6} xl={6}>
-            <QuestionComponent setType={"wrong"} setPrimaryText={"CHOICE 2:"} setSecondarytext={"Wrong"} setDetails={"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"} />
-            </Grid>
-            <Grid item lg={6} md={6} xl={6}>
-            <QuestionComponent setType={"wrong"} setPrimaryText={"CHOICE 3:"} setSecondarytext={"Wrong"} setDetails={"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"} />
-            </Grid>
-            <Grid item lg={6} md={6} xl={6}>
-            <QuestionComponent setType={"wrong"} setPrimaryText={"CHOICE 4:"} setSecondarytext={"Wrong"} setDetails={"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"} />
+            <Grid item lg={12} md={12} xl={12}>
+              <QuestionComponent
+                setType={"correct"}
+                setPrimaryText={"Answer"}
+                typeValue={false}
+                setDetails={
+                  "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used"
+                }
+              />
             </Grid>
           </Grid>
         </Box>
       )}
-      <Box className="setting-container">
-        {/* <Box className="setting-main">
-            <Box className="setting-input-container">
-                <InputLabel setType={"Text"}/>
-
-            </Box>
-
-        </Box> */}
-
-      </Box>
+      {setting && (
+        <Box className="setting-container">
+          <Box className="setting-main">
+            <Grid paddingLeft={2} container direction={"row"} spacing={10}>
+              <Grid item lg={3} xl={4} >
+                <InputLabel
+                  setType={setType}
+                  inputPlaceHolder={settingPlaceholder1}
+                />
+              </Grid>
+              <Grid item lg={3} xl={4}>
+                <InputLabel
+                  setType={setType}
+                  inputPlaceHolder={settingPlaceholder2}
+                />
+              </Grid>
+              <Grid item lg={3} xl={4}>
+                <InputLabel
+                  setType={setType}
+                  inputPlaceHolder={settingPlaceholder3}
+                />
+              </Grid>
+              <Grid
+                item
+                xl={4}
+                lg={4}
+                md={4}
+                sm={6}
+                xs={12}
+                padding={2}
+                marginLeft="auto"
+              >
+                <ButtonLabel
+                  buttonLabel="Save"
+                  styles={{
+                    fontSize: "1.2em",
+                    width: "15em",
+                    backgroundColor: "rgb(68, 68, 242)",
+                    color: "white",
+                  }}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 };

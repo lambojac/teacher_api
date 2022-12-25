@@ -20,11 +20,17 @@ const TeacherComponent = () => {
           setImage={image}
           searchType={false}
           buttonLabel="Create Account"
-          questionType={false}
+          
           tableHead={teacherDataHead}
           cellData={teacherCellData}
           tableType={"teacher"}
           optionType="none"
+          styles={{
+            fontSize:"1.2em",
+            width:"15em",
+            backgroundColor:"#ebad00",
+            color:"white"
+          }}
         />
       </Grid>
     </Grid>

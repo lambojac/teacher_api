@@ -8,6 +8,8 @@ const QuestionComponent = ({
   setType="default",
   setSecondarytext,
   setDetails,
+  typeValue=true
+
 }) => {
   return (
     <Box className="questionnaries-container">
@@ -29,7 +31,10 @@ const QuestionComponent = ({
             <Typography variant="h5" color={"white"}>
               {setSecondarytext}
             </Typography>
-            <img src={trangle} alt="" />
+            {typeValue&&
+             <img src={trangle} alt="" />
+            }
+           
           </Box>
           <Box className="edit-container">
             <img src={edit} alt="edit-image" />

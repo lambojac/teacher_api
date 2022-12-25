@@ -22,7 +22,7 @@ const QuestionChoice = () => {
         setImage={image}
         searchType={false}
         buttonLabel="Create Account"
-        questionType={true}
+        questionType={"question-choice"}
         tableHead={resultDataHead}
         cellData={topicsCellData}
         tableType={"result"}

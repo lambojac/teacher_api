@@ -43,9 +43,7 @@ export const teacherDataHead = [
   },
 ];
 export const resultDataHead = [
-  {
-    title: "Id",
-  },
+ 
   {
     title: "Name",
   },
@@ -60,6 +58,23 @@ export const resultDataHead = [
   },
   {
     title: "Date",
+  },
+];
+export const monthData = [
+  {
+    title: "Name",
+  },
+  {
+    title: "Topic",
+  },
+  {
+    title: "Correct Answer",
+  },
+  {
+    title: "Wrong Amswer",
+  },
+  {
+    title: "Result",
   },
 ];
 export const teacherCellData = [

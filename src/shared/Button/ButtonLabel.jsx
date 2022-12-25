@@ -8,7 +8,8 @@ export default function ButtonLabel({
   handleCLick,
   setDefaultlValue,
   setSize = "medium",
-  loginType=true
+  loginType=true,
+  styles
 }) {
   return (
     <Stack spacing={2} direction="row">
@@ -17,12 +18,8 @@ export default function ButtonLabel({
         onClick={handleCLick}
         defaultValue={setDefaultlValue}
         size={setSize}
-        sx={{
-            fontSize:"1.2em",
-            width: loginType?"20em":"15em",
-            backgroundColor:"#ebad00",
-            color:"black"
-        }}
+        
+        sx={styles}
       >
         {buttonLabel}
       </Button>

@@ -6,6 +6,7 @@ import { dashboardcardData } from "../../utils/fakedata/fakedata";
 import HeaderComponent from "../HeaderComponent/HeaderComponent";
 import dashboardIamge from "../../Assest/Navigation/menu.png";
 import "./dashboard.css";
+import { resultDataHead } from "../../utils/fakedata/fakedata";
 import Cardindicator from "../CardIndiactor/Cardindicator";
 const DashboardComponent = () => {
   return (
@@ -39,19 +40,21 @@ const DashboardComponent = () => {
         alignItems="center"
         direction={"row"}
         spacing={5}
-        padding={7}
+        padding={3}
       >
-        <Grid item>
+        <Grid item >
           <Cardindicator
             darkTheme={false}
             setDetails={"Student pass for month for this september"}
             setTitle="monthly passer"
+            tableHead={resultDataHead}
           />
         </Grid>
-        <Grid item>
+        <Grid item >
           <Cardindicator
             setDetails={"student statics pass verse fail"}
-            setTitle={"Passer percentan=ge"}
+            setTitle={"Passer percentage"}
+            chartEnable={true}
           />
         </Grid>
       </Grid>

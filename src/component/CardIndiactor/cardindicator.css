@@ -1,8 +1,7 @@
 .card-with-indicator-container{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    
     width: 45em;
-    min-height: 10em;
+    height: 28em;
     border-radius: 0.5em;
 }
 .card-with-indicator-label-container{

@@ -5,9 +5,11 @@ import HeaderComponent from "../HeaderComponent/HeaderComponent";
 import dashboardIamge from "../../Assest/Navigation/menu.png";
 import image from "../../Assest/Settings/Username.png"
 import image2 from "../../Assest/Settings/password.png"
-
+import './setting.css'
 import ImageWithListComponent from "../ImageWithListComponent/ImageWithListComponent";
 import { resultDataHead, topicsCellData, topicsDataHead } from "../../utils/fakedata/fakedata";
+import { Box } from "@mui/system";
+import ScrollComponent from "../ScrollComponent/ScrollComponent";
 
 
 const Setting = () => {
@@ -17,13 +19,21 @@ const Setting = () => {
       headerLabel={"Setting"}
       headerLabelIamges={dashboardIamge}
     />
-    <Grid container padding={2} spacing={10} direction="column">
+    <Box>
+      
+      <ScrollComponent setHeight={"50em"}>
+      <Grid container padding={3} spacing={6} direction="column">
     <Grid item>
     <ImageWithListComponent
         labelList={"username"}
         setImage={image}
         searchType={false}
         buttonLabel="Create Account"
+        setting={true}
+        setType={"text"}
+        settingPlaceholder1={"old username"}
+        settingPlaceholder2={"new username"}
+        settingPlaceholder3={"confirm username"}
        
        
       />
@@ -35,11 +45,23 @@ const Setting = () => {
         setImage={image2}
         searchType={false}
         buttonLabel="Create Account"
+        setting={true}
+        setType={"password"}
+        settingPlaceholder1={"old password"}
+        settingPlaceholder2={"new password"}
+        settingPlaceholder3={"confirm password"}
         
        
       />
     </Grid>
     </Grid>
+
+        </ScrollComponent>  
+  
+    
+
+    </Box>
+   
   </Grid>
   )
 }

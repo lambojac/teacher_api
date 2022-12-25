@@ -3,30 +3,30 @@ import React from "react";
 import { Grid, } from "@mui/material";
 import HeaderComponent from "../HeaderComponent/HeaderComponent";
 import dashboardIamge from "../../Assest/Navigation/menu.png";
-import image from "../../Assest/Dashboard/Topic.png";
-import "./topiccomponent.css";
+import image from "../../Assest/Dashboard/Questinnaire.png";
+
 import ImageWithListComponent from "../ImageWithListComponent/ImageWithListComponent";
-import { topicsCellData, topicsDataHead } from "../../utils/fakedata/fakedata";
+import { resultDataHead, topicsCellData} from "../../utils/fakedata/fakedata";
 
 
-const TopicComponent = () => {
+const QuestionAnswer= () => {
   return (
     <Grid container direction={"column"}>
     <HeaderComponent
-      headerLabel={"Topics"}
+      headerLabel={"Questionnaires"}
       headerLabelIamges={dashboardIamge}
     />
     <Grid container padding={5} direction="row">
       <ImageWithListComponent
-        labelList={"Topics List"}
+        labelList={"QUESTIONNAIRES"}
         setImage={image}
-        searchType={true}
+        searchType={false}
         buttonLabel="Create Account"
-      
-        tableHead={topicsDataHead}
+        questionType={"question-answer"}
+        tableHead={resultDataHead}
         cellData={topicsCellData}
-        tableType={"topic"}
-        optionType="none"
+        tableType={"result"}
+        optionType={"option"}
        
       />
     </Grid>
@@ -34,4 +34,4 @@ const TopicComponent = () => {
   )
 }
 
-export default TopicComponent
+export default QuestionAnswer

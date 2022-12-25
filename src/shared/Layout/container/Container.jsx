@@ -17,13 +17,13 @@ import logo from "../../../Title.png";
 import InputLabel from "../../InputLabel/InputLabel";
 import CheckboxLabels from "../../CheckBox/CheckBox";
 import ButtonLabel from "../../Button/ButtonLabel";
-import { styled } from "@mui/material/styles";
-
+import { useState } from "react";
+import{useNavigate} from 'react-router-dom'
 export default function CustomContainer({
   maxWidth,
   paperImage,
   paperImageContainer = false,
-  handleSubmit
+ 
 }) {
   const styles = {
     paperContainer: {
@@ -34,7 +34,19 @@ export default function CustomContainer({
       width: "100%",
     },
   };
+ const history=useNavigate()
+const [username,setUsername]=useState("")
+const[password,setPassword]=useState("")
+const[error,setError]=useState("")
 
+
+const handleSubmit=()=>{
+    if(username&&password==="admin"){
+     history('/dashboard')
+    }else{
+      setError("PASSWORD OR USERNAME DOES'NT MATCH")
+    }
+}
   return (
     <React.Fragment>
       <CssBaseline />
@@ -78,23 +90,38 @@ export default function CustomContainer({
                   <InputLabel
                     setType={"text"}
                     inputPlaceHolder="Please enter your username"
+                    onChange={(e)=>setUsername(e.target.value)}
+                    
                   />
                 </Grid>
                 <Grid item xs={10} lg={12}>
                   <InputLabel
                     setType={"password"}
                     inputPlaceHolder="Please enter your password"
+                    onChange={(e)=>setPassword(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={6} lg={8}>
                   <CheckboxLabels checkBoxLabel={"Remeber me"} />
                 </Grid>
+                {error&&
+                <Grid item>
+                <Typography variant="body1" color={"red"}>{error}</Typography>
+              </Grid>
+                }
+                
                 <Grid item xs={8} lg={8}>
                   <ButtonLabel
                     buttonVariant={"contained"}
                     setSize={"large"}
                     buttonLabel={"Login"}
                     handleCLick={handleSubmit}
+                    styles={{
+                      fontSize:"1.2em",
+                      width: "20em",
+                      backgroundColor:"#ebad00",
+                      color:"black"
+                    }}
                   />
                 </Grid>
               </Stack>
