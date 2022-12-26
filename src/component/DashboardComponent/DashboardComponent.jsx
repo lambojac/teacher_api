@@ -19,7 +19,7 @@ const DashboardComponent = () => {
       <Grid
         container
         direction={"row"}
-        spacing={12}
+        spacing={5}
         padding={5}
         justifyContent={"center"}
         alignItems="center"
@@ -55,7 +55,7 @@ const DashboardComponent = () => {
           <Cardindicator
             setDetails={"student statics pass verse fail"}
             setTitle={"Passer percentage"}
-            chartEnable={true}
+            
           />
         </Grid>
       </Grid>

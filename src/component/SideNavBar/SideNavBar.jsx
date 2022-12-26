@@ -19,7 +19,7 @@ const SideNavBar = ({ parameters }) => {
       backgroundImage: `url(${image})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      height: "100vh",
+      height: "120vh",
       width: "100%",
     },
   };
@@ -32,7 +32,7 @@ const SideNavBar = ({ parameters }) => {
           direction="column"
           alignItems={"center"}
           borderBottom="1px solid white"
-          marginTop="1em"
+          
         >
           <ImageWIthLabel
             setImage={logo}

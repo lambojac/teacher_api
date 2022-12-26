@@ -18,6 +18,7 @@ const Cardindicator = ({
           className="card-with-indicator-label-container"
           sx={{
             backgroundColor: darkTheme ? "rgb(18, 88, 240)" : "#ebad00",
+            padding:"1em"
           }}
         >
           <Typography

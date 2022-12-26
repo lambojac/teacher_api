@@ -27,7 +27,7 @@ const ResultComponent = () => {
           tableHead={resultDataHead}
           cellData={topicsCellData}
           tableType={"result"}
-          optionType={true}
+         
         />
       </Grid>
     </Grid>

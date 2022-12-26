@@ -10,4 +10,12 @@
   border-radius: 0.7em;
 
 }
+@media all and (max-width: 400px) {
+  .input-label{
+    
+    width: 15em;
+    
+  }
+}
+ 
 
