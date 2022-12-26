@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import headerIamge from "../../Assest/Navigation/Header.png";
@@ -8,12 +8,16 @@ const HeaderComponent = ({ headerLabel,headerLabelIamges}) => {
   return (
     <>
       <Box className="header-container">
+       
         <img
           src={headerIamge}
           alt=""
-          style={{ height: "10em", width: "100%" }}
+          style={{ height: "10em",objectFit:"fill",width: "100%" }}
+          className="header-image"
         />
-        <Box
+        
+        
+        <Grid container
           position={"absolute"}
           top={70}
           display={"flex"}
@@ -21,10 +25,10 @@ const HeaderComponent = ({ headerLabel,headerLabelIamges}) => {
           padding={4}
           gap={2}
         >
-          <img src={headerLabelIamges} alt="" />
+          <img src={headerLabelIamges} alt="" className="header-label-image"/>
 
           <Typography color={"white"} fontSize="1.2em">{headerLabel}</Typography>
-        </Box>
+        </Grid>
       </Box>
     </>
   );

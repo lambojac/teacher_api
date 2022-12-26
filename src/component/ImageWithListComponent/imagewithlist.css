@@ -1,7 +1,8 @@
 .Image-with-list-container{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    width: 95em;
-    min-height: 20em;
+    /* width: 95em;
+    min-height: 20em; */
+    width: 100%;
     
 }
 .image-container{
@@ -16,6 +17,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap:1em;
+    flex-wrap: wrap;
+ 
+  
     
   }
   .search-input{
@@ -46,4 +51,19 @@
     align-items: center;
     gap: 0.5em;
   }
+  .setting-main{
+    margin-bottom: -1em;
+  }
+  @media all and (max-width: 679px) {
   
+    .image-list{
+      min-height: 2em;
+    }
+    .setting-grid{
+      padding:0.3em
+    }
+    .image-search{
+      min-height: 1em;
+    }
+  
+  }

@@ -86,7 +86,7 @@ const handleSubmit=()=>{
                     }}
                   />
                 </Grid>
-                <Grid item xs={10} lg={12} md={12}>
+                <Grid item xs={12} lg={12} md={12}>
                   <InputLabel
                     setType={"text"}
                     inputPlaceHolder="Please enter your username"
@@ -94,7 +94,7 @@ const handleSubmit=()=>{
                     
                   />
                 </Grid>
-                <Grid item xs={10} lg={12}>
+                <Grid item xs={12} md={12} lg={12}>
                   <InputLabel
                     setType={"password"}
                     inputPlaceHolder="Please enter your password"

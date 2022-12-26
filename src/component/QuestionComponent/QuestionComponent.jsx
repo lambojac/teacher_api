@@ -32,12 +32,12 @@ const QuestionComponent = ({
               {setSecondarytext}
             </Typography>
             {typeValue&&
-             <img src={trangle} alt="" />
+             <img src={trangle} alt="" className="trangle-iamge" />
             }
            
           </Box>
           <Box className="edit-container">
-            <img src={edit} alt="edit-image" />
+            <img src={edit} alt="edit-image" className="edit-image" />
           </Box>
         </Box>
         <Box className="questionnaries-details-container">

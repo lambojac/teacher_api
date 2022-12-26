@@ -21,7 +21,7 @@ const Setting = () => {
     />
     <Box>
       
-      <ScrollComponent setHeight={"50em"}>
+      {/* <ScrollComponent setHeight={"50em"}> */}
       <Grid container padding={3} spacing={6} direction="column">
     <Grid item>
     <ImageWithListComponent
@@ -56,7 +56,7 @@ const Setting = () => {
     </Grid>
     </Grid>
 
-        </ScrollComponent>  
+        {/* </ScrollComponent>   */}
   
     
 

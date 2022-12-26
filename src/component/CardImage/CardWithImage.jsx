@@ -13,7 +13,7 @@ const CardWithImage = ({imagePath,totalNumber,labelCard}) => {
 
                     </div>
                     <div className='number-container'>
-                        <Typography style={{fontSize:"3em",color:"grey",paddingRight:"0.3em"}}>{totalNumber}</Typography>
+                        <Typography style={{fontSize:"3em",color:"grey",paddingRight:"0.3em"}} className="typography-number">{totalNumber}</Typography>
 
                     </div>
 

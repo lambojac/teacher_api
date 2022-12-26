@@ -38,14 +38,14 @@ const ImageWithListComponent = ({
           </Typography>
         </Box>
         {searchType && (
-          <Box display={"flex"} alignItems="center" gap={2}>
+          <Box display={"flex"} alignItems="center" gap={2} paddingLeft="3em" paddingRight={"3em"}>
             <Typography color={"grey"} variant="h5">
               Search
             </Typography>
 
             <input type={"text"} className="search-input" />
 
-            <img src={searchIcon} alt="" />
+            <img src={searchIcon} alt="" className="image-search" />
           </Box>
         )}
         {optionType === "none" && (
@@ -65,14 +65,14 @@ const ImageWithListComponent = ({
       </Box>
       {optionType === "option" && (
         <Box>
-          <Grid container direction={"row"} spacing={4}>
-            <Grid item xs={6} sm={6} md={4} lg={4} xl={4}>
+          <Grid container direction={"row"} spacing={4} padding="1em">
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={4}>
               <DropDownMenu defaultValue={"Choose Topics"} />
             </Grid>
-            <Grid item sx={6} sm={6} md={4} lg={4} xl={4}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={4}>
               <DropDownMenu defaultValue={"Choose year"} />
             </Grid>
-            <Grid item sx={6} sm={6} md={4} lg={4} xl={4}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={4}>
               <DropDownMenu defaultValue={"Choose Generated code"} />
             </Grid>
           </Grid>
@@ -101,7 +101,7 @@ const ImageWithListComponent = ({
                   }
                 />
               </Grid>
-              <Grid item lg={6} md={6} xl={6}>
+              <Grid item lg={6} md={12} xl={6}>
                 <QuestionComponent
                   setType={"correct"}
                   setPrimaryText={"CHOICE 1:"}
@@ -111,7 +111,7 @@ const ImageWithListComponent = ({
                   }
                 />
               </Grid>
-              <Grid item lg={6} md={6} xl={6}>
+              <Grid item lg={6} md={12} xl={6}>
                 <QuestionComponent
                   setType={"wrong"}
                   setPrimaryText={"CHOICE 2:"}
@@ -121,7 +121,7 @@ const ImageWithListComponent = ({
                   }
                 />
               </Grid>
-              <Grid item lg={6} md={6} xl={6}>
+              <Grid item lg={6} md={12} xl={6}>
                 <QuestionComponent
                   setType={"wrong"}
                   setPrimaryText={"CHOICE 3:"}
@@ -131,7 +131,7 @@ const ImageWithListComponent = ({
                   }
                 />
               </Grid>
-              <Grid item lg={6} md={6} xl={6}>
+              <Grid item lg={6} md={12} xl={6}>
                 <QuestionComponent
                   setType={"wrong"}
                   setPrimaryText={"CHOICE 4:"}
@@ -174,20 +174,20 @@ const ImageWithListComponent = ({
       {setting && (
         <Box className="setting-container">
           <Box className="setting-main">
-            <Grid paddingLeft={2} container direction={"row"} spacing={10}>
-              <Grid item lg={3} xl={4} >
+            <Grid padding={2} container  spacing={5} className="setting-grid">
+              <Grid item>
                 <InputLabel
                   setType={setType}
                   inputPlaceHolder={settingPlaceholder1}
                 />
               </Grid>
-              <Grid item lg={3} xl={4}>
+              <Grid item >
                 <InputLabel
                   setType={setType}
                   inputPlaceHolder={settingPlaceholder2}
                 />
               </Grid>
-              <Grid item lg={3} xl={4}>
+              <Grid item >
                 <InputLabel
                   setType={setType}
                   inputPlaceHolder={settingPlaceholder3}
