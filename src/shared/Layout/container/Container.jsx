@@ -2,6 +2,7 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import {MDBIcon } from "mdb-react-ui-kit";
 import {
   Checkbox,
   Divider,
@@ -41,9 +42,14 @@ const[error,setError]=useState("")
 
 
 const handleSubmit=()=>{
-    if(username&&password==="admin"){
-     history('/dashboard')
-    }else{
+  if(username==="admin"&&password==="admin"){
+    history('/dashboard')
+  }
+  else if(username==="teacher"&&password==="teacher")
+  {
+    history('/sub-dashboard/dashboard-teacher')
+  }
+ else{
       setError("PASSWORD OR USERNAME DOES'NT MATCH")
     }
 }
@@ -54,7 +60,7 @@ const handleSubmit=()=>{
         <Box sx={{ bgcolor: "#ffffff80", height: "100vh" }}>
           <Paper style={styles.paperContainer}>
             <Grid container justifyContent={"center"} alignItems={"center"}>
-              <Grid item xs={12} md={12} sm={12} lg={12} marginTop="5em">
+              <Grid item marginTop="5em">
                 <img
                   src={loginHolderImage}
                   className="imageLogin"
@@ -67,13 +73,14 @@ const handleSubmit=()=>{
                   }}
                 />
               </Grid>
-              <Stack
+              <Grid container
                 direction={"column"}
                 spacing={1}
                 alignItems={"center"}
                 position="absolute"
+
               >
-                <Grid item xs={12} md={12} sm={12} lg={12} marginTop="5em">
+                <Grid item xs={12} md={12} sm={12} lg={12} marginTop="1em">
                   <img
                     src={logo}
                     className="imageLogo"
@@ -86,19 +93,22 @@ const handleSubmit=()=>{
                     }}
                   />
                 </Grid>
-                <Grid item xs={12} lg={12} md={12}>
+                <Grid item xs={12} lg={12} md={12} sx={{marginTop:"1em"}}>
                   <InputLabel
                     setType={"text"}
-                    inputPlaceHolder="Please enter your username"
+                    inputPlaceHolder="Enter your username"
                     onChange={(e)=>setUsername(e.target.value)}
+                 
+                    icons={<MDBIcon fas icon='at' />}
                     
                   />
                 </Grid>
                 <Grid item xs={12} md={12} lg={12}>
                   <InputLabel
                     setType={"password"}
-                    inputPlaceHolder="Please enter your password"
+                    inputPlaceHolder="Enter your password"
                     onChange={(e)=>setPassword(e.target.value)}
+                    icons={<MDBIcon fas icon='key' />}
                   />
                 </Grid>
                 <Grid item xs={6} lg={8}>
@@ -124,7 +134,7 @@ const handleSubmit=()=>{
                     }}
                   />
                 </Grid>
-              </Stack>
+              </Grid>
             </Grid>
           </Paper>
         </Box>

@@ -7,8 +7,9 @@ import "./resultcomponent.css";
 import ImageWithListComponent from "../ImageWithListComponent/ImageWithListComponent";
 import {
   resultDataHead,
+  studentCellData,
   topicsCellData,
-  topicsDataHead,
+ 
 } from "../../utils/fakedata/fakedata";
 
 const ResultComponent = () => {
@@ -25,8 +26,9 @@ const ResultComponent = () => {
           searchType={false}
           buttonLabel="Create Account"
           tableHead={resultDataHead}
-          cellData={topicsCellData}
+          cellData={studentCellData}
           tableType={"result"}
+          
          
         />
       </Grid>

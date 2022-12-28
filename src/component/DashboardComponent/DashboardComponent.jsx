@@ -8,24 +8,25 @@ import dashboardIamge from "../../Assest/Navigation/menu.png";
 import "./dashboard.css";
 import { resultDataHead } from "../../utils/fakedata/fakedata";
 import Cardindicator from "../CardIndiactor/Cardindicator";
-const DashboardComponent = () => {
+import ScrollComponent from "../ScrollComponent/ScrollComponent";
+const DashboardComponent = ({data=[]}) => {
   return (
     <Grid container direction={"column"}>
       <HeaderComponent
         headerLabel={"Dashboard"}
         headerLabelIamges={dashboardIamge}
       />
-
+      
       <Grid
         container
         direction={"row"}
-        spacing={5}
-        padding={5}
+        spacing={10}
+        padding={7}
         justifyContent={"center"}
         alignItems="center"
         zIndex={1}
       >
-        {dashboardcardData.map((each, index) => (
+        { data.map((each, index) => (
           <Grid item key={index}>
             <CardWithImage
               imagePath={each.image}
@@ -41,7 +42,7 @@ const DashboardComponent = () => {
         alignItems="center"
         direction={"row"}
         spacing={5}
-        padding={3}
+        padding={2}
       >
         <Grid item >
           <Cardindicator
@@ -55,10 +56,13 @@ const DashboardComponent = () => {
           <Cardindicator
             setDetails={"student statics pass verse fail"}
             setTitle={"Passer percentage"}
+            chartEnable={true}
             
           />
         </Grid>
       </Grid>
+     
+     
     </Grid>
   );
 };

@@ -7,10 +7,11 @@
 .image-container {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .image-list {
   margin-top: -2em;
-  margin-left: -1.5em;
+  margin-left: 1em;
 }
 .image-with-list-main {
   display: flex;
@@ -29,7 +30,7 @@
 }
 #drop-menu {
   outline: none;
-  width: 25em;
+  width: 20em;
   padding: 1em;
   border-radius: 1em;
 }
@@ -60,17 +61,20 @@
   .image-search {
     min-height: 1em;
   }
+  #drop-menu {
+    width: 20em;
+  }
 }
 
 @media all and (max-width: 400px) {
   .search-input{
-    display: none;
+  display: none;
   }
   .search-typo-text{
     display: none;
   }
   #drop-menu {
-    width: 20em;
+    width: 18em;
   }
   .image-with-list-main {
    justify-content: flex-start;
