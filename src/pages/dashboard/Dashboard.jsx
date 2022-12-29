@@ -19,9 +19,11 @@ import "./dashboardPage.css";
 import ScrollComponent from "../../component/ScrollComponent/ScrollComponent";
 import {dashboardcardData} from "../../utils/fakedata/fakedata"
 
+
 const Dashboard = () => {
   const { name } = useParams();
   const [trigger, setTrigger] = useState(false);
+
   let menuRef = useRef();
   useEffect(() => {
     let handler = (e) => {
@@ -36,6 +38,7 @@ const Dashboard = () => {
     <Grid
       container
       position={"relative"}
+      className="dashboard-main-page"
       sx={
         {
           // backgroundImage:`url(${image})`,
@@ -85,13 +88,16 @@ const Dashboard = () => {
         </Grid>
       )}
       { trigger && (
-        <Grid item xl={3} lg={3} md={4} zIndex={1}>
+        
+        <Grid item xl={3} lg={3} md={4} zIndex={1} className="grid-side-container">
           <span ref={menuRef}>
             <SideNavBar parameters={name} sideNavData={sideNavData} role={"Admin"} />
           </span>
         </Grid>
 
       )}
+     
+      
 
       {trigger ? (
         <>

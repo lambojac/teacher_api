@@ -24,7 +24,7 @@ const DashboardComponent = ({data=[]}) => {
         padding={7}
         justifyContent={"center"}
         alignItems="center"
-        zIndex={1}
+        
       >
         { data.map((each, index) => (
           <Grid item key={index}>

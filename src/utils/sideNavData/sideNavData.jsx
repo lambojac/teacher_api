@@ -32,15 +32,15 @@ export const sideNavData = [
   {
     label: "Topics",
     image: arrowRightImage,
-    width: "2em",
-    height: "2em",
+    width: "1em",
+    height: "1em",
     values: "topic",
   },
   {
     label: "Questionnaires",
     image: arrowRightImage,
-    width: "2em",
-    heights: "2em",
+   
+  
     values: "question-answer",
   },
   {
@@ -73,6 +73,13 @@ export const sideNavDatas = [
     width: "2em",
     height: "2em",
     values: "topic-teacher",
+  },
+  {
+    label: "Questionnaires",
+    image: QuestionsImage,
+    width: "1em",
+    heights: "2em",
+    values: "question-teacher",
   },
 
   {

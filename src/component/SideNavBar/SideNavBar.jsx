@@ -8,6 +8,7 @@ import logo from "../../Assest/Navigation/title.png";
 import { sideNavData } from "../../utils/sideNavData/sideNavData";
 import ButtonLabel from "../../shared/Button/ButtonLabel";
 import {useNavigate} from 'react-router-dom'
+import './sidenavbar.css'
 const SideNavBar = ({ parameters,role,sideNavData,subType}) => {
   const history=useNavigate()
   const handleLogout=()=>{
@@ -19,7 +20,7 @@ const SideNavBar = ({ parameters,role,sideNavData,subType}) => {
       backgroundImage: `url(${image})`,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      height: "120vh",
+      height: "100vh",
       width: "100%",
     },
   };
@@ -27,31 +28,31 @@ const SideNavBar = ({ parameters,role,sideNavData,subType}) => {
   return (
     <Grid container>
       <Paper style={styles.paperContiner}>
-        <Stack
+        <Grid container
           spacing={1}
           direction="column"
           alignItems={"center"}
+          paddingBottom="0.7em"
+         
           borderBottom="1px solid white"
           
         >
-          <ImageWIthLabel
-            setImage={logo}
-            setLabel="TeSco"
-            labelVariant={"h3"}
-            setHeight="6em"
-            setWidth={"6em"}
-            setpath={"dashboard"}
-          />
-          <Typography variant="h4" fontWeight={"700"} color={"white"}>
+          <Grid item marginTop={"1.5em"} lg={4} md={2}>
+            <img src={logo} alt="" className="iamge-logonavbar" />
+          </Grid>
+          <Grid item>
+          <Typography variant="h5" fontWeight={"700"} color={"white"}>
             {role}
           </Typography>
-        </Stack>
+          </Grid>
+         
+        </Grid>
         {sideNavData.map((each, index) => (
-          <Box sx={{ margin: "2em" }} key={index}>
+          <Box sx={{ margin: "2em",padding:"0em 1em" }} key={index}>
             <ImageWIthLabel
               setImage={each.image}
               setpath={each.values}
-              labelVariant={"h6"}
+              labelVariant={"body1"}
               setLabel={each.label}
               setHeight={each.height}
               setWidth={each.width}
@@ -60,10 +61,12 @@ const SideNavBar = ({ parameters,role,sideNavData,subType}) => {
             />
           </Box>
         ))}
-        <Box
+        <Box display={"flex"} alignItems="center" justifyContent={"center"}
+        
           sx={{
-            marginLeft: "5em",
-            marginTop: "5em",
+           
+           marginTop:"6em"
+           
           }}
         >
           <ButtonLabel

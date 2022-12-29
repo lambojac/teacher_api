@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
+import {Grid }from "@mui/material";
+import './imagewithlabel.css'
 
 const ImageWIthLabel = ({
   setImage,
@@ -17,15 +19,16 @@ const ImageWIthLabel = ({
     <>
     {!subType&&
      <Link to={`/${setpath}`} style={{textDecoration:"none"}}>
-     <Stack
+     <Grid container
      sx={{
        backgroundColor:setpath===parameters&&"rgba(0, 0, 0, 0.402);",
-       padding:"0.5em 2em",
+      padding:"0.4em",
        borderRadius:"0.7em"
      }}
-     spacing={2} direction="row" alignItems={"center"} >
+      spacing={2} alignItems={"center"} display="flex" justifyContent={"center"} >
      
-         <Box
+         <Grid item
+         className="image-with-label-logo"
            sx={{
              backgroundImage: `url(${setImage})`,
              width: setWidth,
@@ -36,8 +39,8 @@ const ImageWIthLabel = ({
              cursor: "pointer",
            }}
          />
-
-         <Typography
+          <Grid item>
+          <Typography
            sx={{ cursor: "pointer" }}
            variant={labelVariant}
            fontWeight={"600"}
@@ -45,9 +48,11 @@ const ImageWIthLabel = ({
          >
            {setLabel}
          </Typography>
+          </Grid>
+       
          
      
-     </Stack>
+     </Grid>
      </Link>
     }
     {subType&&
