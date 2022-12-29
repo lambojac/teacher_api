@@ -30,7 +30,7 @@
 }
 #drop-menu {
   outline: none;
-  width: 20em;
+  min-width: 20em;
   padding: 1em;
   border-radius: 1em;
 }

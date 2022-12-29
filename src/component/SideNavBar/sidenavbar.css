@@ -1,12 +1,6 @@
-@media all and (max-width: 990px) {
-    .iamge-logonavbar{
-       max-width: 10em;
-       min-height: 5em;
-    }
-}
-@media all and (max-width: 679px) {
-    .iamge-logonavbar{
-       max-width: 10em;
-       min-height: 5em;
-    }
+.side-bar-style-container-active{
+    display: flex;
+    /* align-items: "center";
+    justify-content: center; */
+    
 }

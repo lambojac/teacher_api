@@ -100,7 +100,7 @@
  */
  @media all and (max-width:549px){
   .dashboard-main-page{
-    max-height: 100vh;
+    max-height: 120vh;
     overflow-y: hidden;
   }
   

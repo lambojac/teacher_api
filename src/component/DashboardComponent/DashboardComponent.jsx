@@ -11,7 +11,7 @@ import Cardindicator from "../CardIndiactor/Cardindicator";
 import ScrollComponent from "../ScrollComponent/ScrollComponent";
 const DashboardComponent = ({data=[]}) => {
   return (
-    <Grid container direction={"column"}>
+    <Grid container direction={"column"} className="dashboard-container-component">
       <HeaderComponent
         headerLabel={"Dashboard"}
         headerLabelIamges={dashboardIamge}

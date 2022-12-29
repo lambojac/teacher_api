@@ -1,87 +1,162 @@
 import { Grid, Paper, Box, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import image from "../../Assest/Navigation/sidebar.png";
 import ImageWIthLabel from "../../shared/ImageWithLabel/ImageWIthLabel";
 import logo from "../../Assest/Navigation/title.png";
-
+import KeyboardDoubleArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowLeftOutlined";
 import { sideNavData } from "../../utils/sideNavData/sideNavData";
 import ButtonLabel from "../../shared/Button/ButtonLabel";
-import {useNavigate} from 'react-router-dom'
-import './sidenavbar.css'
-const SideNavBar = ({ parameters,role,sideNavData,subType}) => {
-  const history=useNavigate()
-  const handleLogout=()=>{
-    history('/')
-  }
+import { motion } from "framer-motion";
+import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
 
+import { useNavigate } from "react-router-dom";
+import "./sidenavbar.css";
+const SideNavBar = ({
+  parameters,
+  role,
+  sideNavData = [],
+  subType,
+  setTigger,
+  children,
+}) => {
+  const history = useNavigate();
+  const handleLogout = () => {
+    history("/");
+  };
+  const [isOpen, setOpen] = useState(true);
   const styles = {
     paperContiner: {
-      backgroundImage: `url(${image})`,
-      backgroundSize: "cover",
+      backgroundImage: isOpen ? `url(${image})` : null,
+      backgroundSize: "fill",
       backgroundRepeat: "no-repeat",
       height: "100vh",
-      width: "100%",
+      minWidth: "20em",
     },
   };
 
+  const open = () => {
+    setOpen(true);
+    setRotaion(rotation + 180);
+  };
+  const close = () => {
+    setOpen(false);
+    setRotaion(rotation - 180);
+  };
+
+  const [rotation, setRotaion] = useState(0);
   return (
-    <Grid container>
-      <Paper style={styles.paperContiner}>
-        <Grid container
-          spacing={1}
-          direction="column"
-          alignItems={"center"}
-          paddingBottom="0.7em"
-         
-          borderBottom="1px solid white"
-          
-        >
-          <Grid item marginTop={"1.5em"} lg={4} md={2}>
-            <img src={logo} alt="" className="iamge-logonavbar" />
+    <div className="side-bar-style-container-active">
+      <motion.div animate={{ width: isOpen ? "20em" : "0px" }}>
+        <Box style={styles.paperContiner} className="paper-side-bar">
+          <Grid
+            container
+            spacing={1}
+            direction="column"
+            alignItems={"center"}
+            borderBottom="1px solid white"
+          >
+            <Grid
+              container
+              padding={5.5}
+              direction={"row"}
+              display="flex"
+              justifyContent={"center"}
+              alignItems={"center"}
+              gap={2}
+            >
+              {isOpen && (
+                <Grid item>
+                  <img
+                    src={logo}
+                    alt=""
+                    className="iamge-logonavbar"
+                    style={{ width: "10em" }}
+                  />
+                </Grid>
+              )}
+
+              <Grid item zIndex={2}>
+                <motion.div
+                  animate={{ rotate: rotation }}
+                  onClick={() => (isOpen ? close() : open())}
+                >
+                  <button
+                    onClick={""}
+                    style={{
+                      backgroundColor: "transparent",
+                      outline: "none",
+                      border: "none",
+
+                      //     border:"none",
+                      //   cursor:"pointer",
+                      // borderRadius:"50%",
+                      boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
+                    }}
+                  >
+                    <FormatAlignRightIcon
+                      fontSize="large"
+                      sx={{
+                        color: "white",
+                      }}
+                    />
+                  </button>
+                </motion.div>
+              </Grid>
+            </Grid>
+
+            <Grid item>
+              <Typography variant="h5" fontWeight={"700"} color={"white"}>
+                {role}
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item>
-          <Typography variant="h5" fontWeight={"700"} color={"white"}>
-            {role}
-          </Typography>
-          </Grid>
+          {isOpen&&
+           <Box sx={{display:"flex",alignItems:"center",flexDirection:"column"}}>
+           {sideNavData.map((each, index) => (
+             <Box sx={{ marginTop:"2em", padding: "0em 1em"}} key={index}>
+               <ImageWIthLabel
+                 setImage={each.image}
+                 setpath={each.values}
+                 labelVariant={"h6"}
+                 setLabel={each.label}
+                 setIcon={each.icon}
+                 parameters={parameters}
+                 subType={subType}
+               />
+             </Box>
+           ))}          
+           </Box>
+          }
          
-        </Grid>
-        {sideNavData.map((each, index) => (
-          <Box sx={{ margin: "2em",padding:"0em 1em" }} key={index}>
-            <ImageWIthLabel
-              setImage={each.image}
-              setpath={each.values}
-              labelVariant={"body1"}
-              setLabel={each.label}
-              setHeight={each.height}
-              setWidth={each.width}
-              parameters={parameters}
-              subType={subType}
-            />
-          </Box>
-        ))}
-        <Box display={"flex"} alignItems="center" justifyContent={"center"}
-        
-          sx={{
-           
-           marginTop:"6em"
-           
-          }}
-        >
-          <ButtonLabel
-            buttonLabel={"Logout"}
-            handleCLick={handleLogout}
-            styles={{
-              fontSize: "1.2em",
-              width: "10em",
-              backgroundColor: "#ebad00",
-              color: "black",
-            }}
-          />
+         
+          {isOpen && (
+            <Box
+              display={"flex"}
+              alignItems="center"
+              justifyContent={"center"}
+              sx={{
+                marginTop: "12.5em",
+                marginBottom: "4em",
+              }}
+            >
+              <ButtonLabel
+                buttonLabel={"Logout"}
+                handleCLick={handleLogout}
+                styles={{
+                  fontSize: "1.2em",
+                  width: "10em",
+                  backgroundColor: "#ebad00",
+                  color: "black",
+                }}
+              />
+            </Box>
+          )}
         </Box>
-      </Paper>
-    </Grid>
+      </motion.div>
+
+      <main>{children}</main>
+    </div>
   );
 };
 

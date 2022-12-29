@@ -4,6 +4,7 @@ import resultImage from "../../Assest/Navigation/3-resukt.png";
 
 import settingImage from "../../Assest/Navigation/4-settings.png";
 import arrowRightImage from "../../Assest/Navigation/arrow_right.png";
+import HomeIcon from '@mui/icons-material/Home';
 
 import dashboardImage from "../../Assest/Navigation/1-dashboard.png";
 
@@ -11,43 +12,38 @@ export const sideNavData = [
   {
     label: "Dashboard",
     image: dashboardImage,
-    width: "2em",
-    height: "2em",
+    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "dashboard",
   },
   {
     label: "Teachers",
     image: TeacherImage,
-    width: "2em",
-    height: "2em",
+    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "teacher",
   },
   {
     label: "Questions",
     image: QuestionsImage,
-    width: "1.9em",
-    height: "2.9em",
+    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "question-choice",
   },
   {
     label: "Topics",
     image: arrowRightImage,
-    width: "1em",
-    height: "1em",
+    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "topic",
   },
   {
     label: "Questionnaires",
     image: arrowRightImage,
-   
+    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
   
     values: "question-answer",
   },
   {
     label: "Results",
     image: resultImage,
-    width: "2.5em",
-    height: "2.5em",
+    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "result",
   },
   {
@@ -92,8 +88,7 @@ export const sideNavDatas = [
   {
     label: "Setting",
     image: settingImage,
-    width: "2em",
-    height: "2em",
+    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "setting-teacher",
   },
 ];
