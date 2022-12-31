@@ -112,16 +112,18 @@ const ImageWithListComponent = ({
             direction={"row"}
             display="flex"
             justifyContent={"center"}
+            alignItems="center"
             gap={10}
-            flexWrap="wrap"
+            padding={2}
+            
           >
-            <Grid item>
+            <Grid item xs={12} lg={12} xl={3}>
               <DropDownMenu defaultValue={"Choose Topics"} />
             </Grid>
-            <Grid item>
+            <Grid item xs={12} lg={12} xl={3}>
               <DropDownMenu defaultValue={"Choose year"} />
             </Grid>
-            <Grid item>
+            <Grid item xs={12} lg={12} xl={3}>
               <DropDownMenu defaultValue={"Choose Generated code"} />
             </Grid>
           </Grid>

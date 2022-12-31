@@ -12,6 +12,8 @@ import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
 
 import { useNavigate } from "react-router-dom";
 import "./sidenavbar.css";
+import { useRef,useEffect} from "react";
+import ScrollComponent from "../ScrollComponent/ScrollComponent";
 const SideNavBar = ({
   parameters,
   role,
@@ -28,9 +30,9 @@ const SideNavBar = ({
   const styles = {
     paperContiner: {
       backgroundImage: isOpen ? `url(${image})` : null,
-      backgroundSize: "fill",
+      backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      height: "100vh",
+      height: "100%",
       minWidth: "20em",
     },
   };
@@ -45,16 +47,25 @@ const SideNavBar = ({
   };
 
   const [rotation, setRotaion] = useState(0);
+  let menuRef = useRef();
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+  });
   return (
-    <div className="side-bar-style-container-active">
+    <div className="side-bar-style-container-active" >
       <motion.div animate={{ width: isOpen ? "20em" : "0px" }}>
-        <Box style={styles.paperContiner} className="paper-side-bar">
+        <Box style={styles.paperContiner} className="paper-side-bar" >
           <Grid
             container
             spacing={1}
             direction="column"
             alignItems={"center"}
-            borderBottom="1px solid white"
+            borderBottom={isOpen ? "1px solid white" : ""}
           >
             <Grid
               container
@@ -76,7 +87,7 @@ const SideNavBar = ({
                 </Grid>
               )}
 
-              <Grid item zIndex={2}>
+              <Grid item >
                 <motion.div
                   animate={{ rotate: rotation }}
                   onClick={() => (isOpen ? close() : open())}
@@ -91,7 +102,7 @@ const SideNavBar = ({
                       //     border:"none",
                       //   cursor:"pointer",
                       // borderRadius:"50%",
-                      boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px;",
+                      boxShadow:"rgb(51, 51, 51) 0px 0px 0px 3px"
                     }}
                   >
                     <FormatAlignRightIcon
@@ -104,40 +115,47 @@ const SideNavBar = ({
                 </motion.div>
               </Grid>
             </Grid>
-
-            <Grid item>
-              <Typography variant="h5" fontWeight={"700"} color={"white"}>
-                {role}
-              </Typography>
-            </Grid>
+            {isOpen && (
+              <Grid item>
+                <Typography variant="h5" fontWeight={"700"} color={"white"}>
+                  {role}
+                </Typography>
+              </Grid>
+            )}
           </Grid>
-          {isOpen&&
-           <Box sx={{display:"flex",alignItems:"center",flexDirection:"column"}}>
-           {sideNavData.map((each, index) => (
-             <Box sx={{ marginTop:"2em", padding: "0em 1em"}} key={index}>
-               <ImageWIthLabel
-                 setImage={each.image}
-                 setpath={each.values}
-                 labelVariant={"h6"}
-                 setLabel={each.label}
-                 setIcon={each.icon}
-                 parameters={parameters}
-                 subType={subType}
-               />
-             </Box>
-           ))}          
-           </Box>
-          }
-         
-         
+          {isOpen && (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              {sideNavData.map((each, index) => (
+                <Box sx={{ marginTop: "2em", padding: "0em 1em" }} key={index}>
+                  <ImageWIthLabel
+                    setImage={each.image}
+                    setpath={each.values}
+                    labelVariant={"h6"}
+                    setLabel={each.label}
+                    setIcon={each.icon}
+                    parameters={parameters}
+                    setDrop={each.type}
+                    
+                    
+                  />
+                </Box>
+              ))}
+            </Box>
+          )}
+
           {isOpen && (
             <Box
               display={"flex"}
-              alignItems="center"
+              alignItems="flex-end"
               justifyContent={"center"}
               sx={{
-                marginTop: "12.5em",
-                marginBottom: "4em",
+                marginTop:"7em"
               }}
             >
               <ButtonLabel
@@ -155,7 +173,7 @@ const SideNavBar = ({
         </Box>
       </motion.div>
 
-      <main>{children}</main>
+      <main className="main-child-container">{children}</main>
     </div>
   );
 };

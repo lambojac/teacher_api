@@ -5,8 +5,13 @@ import resultImage from "../../Assest/Navigation/3-resukt.png";
 import settingImage from "../../Assest/Navigation/4-settings.png";
 import arrowRightImage from "../../Assest/Navigation/arrow_right.png";
 import HomeIcon from '@mui/icons-material/Home';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import SettingsIcon from '@mui/icons-material/Settings';
+import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
+import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 
 import dashboardImage from "../../Assest/Navigation/1-dashboard.png";
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 
 export const sideNavData = [
   {
@@ -14,81 +19,87 @@ export const sideNavData = [
     image: dashboardImage,
     icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "dashboard",
+    type:false
   },
   {
     label: "Teachers",
     image: TeacherImage,
-    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
+    icon:<SchoolOutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "teacher",
+    type:false
   },
   {
     label: "Questions",
     image: QuestionsImage,
-    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
+    icon:<QuestionMarkIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "question-choice",
+    type:false
   },
   {
     label: "Topics",
     image: arrowRightImage,
-    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
+    icon:<ArrowRightOutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "topic",
+    type:true
   },
   {
     label: "Questionnaires",
     image: arrowRightImage,
-    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
-  
+    icon:<ArrowRightOutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
+    type:false,
     values: "question-answer",
   },
   {
     label: "Results",
     image: resultImage,
-    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
+    icon:<StickyNote2OutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "result",
+    type:false
   },
   {
     label: "Setting",
     image: settingImage,
-    width: "2em",
-    height: "2em",
+   icon:<SettingsIcon  sx={{fontSize:"2em",color:"white"}}/>,
     values: "setting",
+    type:false
   },
 ];
 export const sideNavDatas = [
   {
     label: "Dashboard",
     image: dashboardImage,
-    width: "2em",
-    height: "2em",
+   icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "dashboard-teacher",
+    type:"none"
   },
 
   {
     label: "Topics",
     image: arrowRightImage,
-    width: "2em",
-    height: "2em",
+  icon:<ArrowRightOutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "topic-teacher",
+    type:"drop"
   },
   {
     label: "Questionnaires",
     image: QuestionsImage,
-    width: "1em",
-    heights: "2em",
+    icon:<QuestionMarkIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "question-teacher",
+    type:"none"
   },
 
   {
     label: "Results",
     image: resultImage,
-    width: "2.5em",
-    height: "2.5em",
+   icon:<StickyNote2OutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "result-teacher",
+    type:"none"
   },
   {
     label: "Setting",
     image: settingImage,
-    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
+    icon:<SettingsIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "setting-teacher",
+    type:"none"
   },
 ];

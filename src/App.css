@@ -1,0 +1,12 @@
+
+  @media all and (max-width:709px){
+    .App{
+    
+     overflow: hidden;
+     height: 100vh;
+  
+  }  
+    
+    
+   
+ }

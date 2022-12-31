@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Hidden, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import headerIamge from "../../Assest/Navigation/Header.png";
@@ -14,7 +14,8 @@ const HeaderComponent = ({ headerLabel,headerLabelIamges}) => {
         <img
           src={headerIamge}
           alt=""
-          style={{objectFit:"cover",width:"100%",height:"auto"}}
+
+          style={{minHeight:"10.7em",width:"100%"}}
           className="header-image"
         />
         
@@ -26,6 +27,8 @@ const HeaderComponent = ({ headerLabel,headerLabelIamges}) => {
           alignItems="center"
           padding={4}
           gap={0.5}
+          maxWidth="18em"
+          maxHeight={"1em"}
           
         >
           <img src={headerLabelIamges} alt="" className="header-label-image"/>
