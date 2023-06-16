@@ -12,7 +12,7 @@ import ScrollComponent from "../ScrollComponent/ScrollComponent";
 import backgroundImage from "../../BG.png";
 const DashboardComponent = ({ data = [] }) => {
   return (
-    
+    <ScrollComponent>
     <Grid
       container
       direction={"column"}
@@ -20,6 +20,9 @@ const DashboardComponent = ({ data = [] }) => {
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize:"cover",
+        minHeight:"100%",
+        
+        // height:"100%"
        
       }}
       className="dashboard-component-container"
@@ -28,7 +31,7 @@ const DashboardComponent = ({ data = [] }) => {
         headerLabel={"Dashboard"}
         headerLabelIamges={dashboardIamge}
       />
-<ScrollComponent styles={{height:"100vh"}}>
+
 
 <Grid
         container
@@ -54,9 +57,9 @@ const DashboardComponent = ({ data = [] }) => {
         alignItems="center"
         direction={"row"}
         spacing={3}
-        padding={0.5}
+        padding={3}
       >
-        <Grid item xs={8}>
+        <Grid item xs={8} xl={6}>
           <Cardindicator
             darkTheme={false}
             setDetails={"Student pass for month for this september"}
@@ -64,7 +67,7 @@ const DashboardComponent = ({ data = [] }) => {
             tableHead={resultDataHead}
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={8} xl={6}>
           <Cardindicator
             setDetails={"student statics pass verse fail"}
             setTitle={"Passer percentage"}
@@ -72,9 +75,10 @@ const DashboardComponent = ({ data = [] }) => {
           />
         </Grid>
       </Grid>
-</ScrollComponent>
+
    
     </Grid>
+    </ScrollComponent>
     
   );
 };

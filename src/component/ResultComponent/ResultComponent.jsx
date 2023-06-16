@@ -12,10 +12,20 @@ import {
  
 } from "../../utils/fakedata/fakedata";
 import ScrollComponent from "../ScrollComponent/ScrollComponent";
+import backgroundImage from "../../BG.png";
 
 const ResultComponent = () => {
   return (
-    <Grid container direction={"column"}>
+    <ScrollComponent>
+    <Grid container direction={"column"}
+    sx={{
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize:"cover",
+      minHeight:"100%"
+     
+    }}
+    >
       <HeaderComponent
         headerLabel={"Result"}
         headerLabelIamges={dashboardIamge}
@@ -23,7 +33,8 @@ const ResultComponent = () => {
       
 
       
-      <Grid container padding={5} direction="row">
+      <Grid container padding={5}  direction="row">
+        <Grid item xl={12} xs={10}>
         <ImageWithListComponent
           labelList={"Result"}
           setImage={image}
@@ -35,8 +46,13 @@ const ResultComponent = () => {
           
          
         />
+        </Grid>
+       
       </Grid>
+      
+     
     </Grid>
+    </ScrollComponent>
   );
 };
 

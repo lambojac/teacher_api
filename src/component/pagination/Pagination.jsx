@@ -17,7 +17,7 @@ const PaginationAdd = ({setProducts,rawData}) => {
         service.getData({from:pagination.from,to:pagination.to,raw:pagination.raw}).then(response=>{
             setPagination({...pagination,count:response.count})
             setProducts(response.data)
-            console.log(response)
+            
         })
     },[pagination.from,pagination.to])
 

@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import "./sidenavbar.css";
 import { useRef,useEffect} from "react";
 import ScrollComponent from "../ScrollComponent/ScrollComponent";
+import SideScroll from "../ScrollComponent/SideScroll";
 const SideNavBar = ({
   parameters,
   role,
@@ -21,10 +22,12 @@ const SideNavBar = ({
   subType,
   setTigger,
   children,
+  setUser
 }) => {
   const history = useNavigate();
   const handleLogout = () => {
     history("/");
+    setUser("")
   };
   const [isOpen, setOpen] = useState(true);
   const styles = {
@@ -32,8 +35,9 @@ const SideNavBar = ({
       backgroundImage: isOpen ? `url(${image})` : null,
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      height: "100%",
-      minWidth: "20em",
+      minHeight: "100vh",
+      width:isOpen?"20em":"0em"
+      
     },
   };
 
@@ -57,9 +61,9 @@ const SideNavBar = ({
     document.addEventListener("mousedown", handler);
   });
   return (
-    <div className="side-bar-style-container-active" >
-      <motion.div animate={{ width: isOpen ? "20em" : "0px" }}>
-        <Box style={styles.paperContiner} className="paper-side-bar" >
+    <div className="side-bar-style-container-active" style={{postion:"relative"}} >
+      <motion.div animate={{ width: isOpen ? "20em" : "0px",transition:{duration:0.2}}}  >
+        <Paper style={styles.paperContiner} className="paper-side-bar" ref={menuRef} >
           <Grid
             container
             spacing={1}
@@ -69,13 +73,42 @@ const SideNavBar = ({
           >
             <Grid
               container
-              padding={5.5}
+              padding={5}
               direction={"row"}
               display="flex"
               justifyContent={"center"}
               alignItems={"center"}
-              gap={2}
+              gap={3}
+             
             >
+                 <Grid item  zIndex={2}>
+                <motion.div
+                  animate={{ rotate: rotation }}
+                  onClick={() => (isOpen ? close() : open())}
+                >
+                  <button
+                    onClick={""}
+                    style={{
+                      backgroundColor: "transparent",
+                      outline: "none",
+                      border: "none",
+                      
+
+                      //     border:"none",
+                      //   cursor:"pointer",
+                      // borderRadius:"50%",
+                      boxShadow:"rgb(79, 78, 78) 0px 0px 0px 3px"
+                    }}
+                  >
+                    <FormatAlignRightIcon
+                      fontSize="small"
+                      sx={{
+                        color: "rgb(79, 78, 78)",
+                      }}
+                    />
+                  </button>
+                </motion.div>
+              </Grid>
               {isOpen && (
                 <Grid item>
                   <img
@@ -87,76 +120,50 @@ const SideNavBar = ({
                 </Grid>
               )}
 
-              <Grid item >
-                <motion.div
-                  animate={{ rotate: rotation }}
-                  onClick={() => (isOpen ? close() : open())}
-                >
-                  <button
-                    onClick={""}
-                    style={{
-                      backgroundColor: "transparent",
-                      outline: "none",
-                      border: "none",
-
-                      //     border:"none",
-                      //   cursor:"pointer",
-                      // borderRadius:"50%",
-                      boxShadow:"rgb(51, 51, 51) 0px 0px 0px 3px"
-                    }}
-                  >
-                    <FormatAlignRightIcon
-                      fontSize="large"
-                      sx={{
-                        color: "white",
-                      }}
-                    />
-                  </button>
-                </motion.div>
-              </Grid>
+           
             </Grid>
             {isOpen && (
               <Grid item>
-                <Typography variant="h5" fontWeight={"700"} color={"white"}>
+                <Typography variant="h6" fontWeight={"700"} color={"white"} >
                   {role}
                 </Typography>
               </Grid>
             )}
           </Grid>
           {isOpen && (
-            <Box
+            <Grid container
               sx={{
                 display: "flex",
                 alignItems: "center",
                 flexDirection: "column",
+               
               }}
             >
+              <SideScroll >
               {sideNavData.map((each, index) => (
-                <Box sx={{ marginTop: "2em", padding: "0em 1em" }} key={index}>
+                <Grid item sx={{ marginTop: "2em", padding: "0em 1em" }} key={index}>
                   <ImageWIthLabel
                     setImage={each.image}
                     setpath={each.values}
                     labelVariant={"h6"}
                     setLabel={each.label}
                     setIcon={each.icon}
+                    subType={subType}
                     parameters={parameters}
                     setDrop={each.type}
                     
                     
                   />
-                </Box>
+                </Grid>
               ))}
-            </Box>
-          )}
-
-          {isOpen && (
-            <Box
+           
+          
+               <Grid Item
               display={"flex"}
-              alignItems="flex-end"
+              marginTop="4em"
+              marginBottom={"4em"}
               justifyContent={"center"}
-              sx={{
-                marginTop:"7em"
-              }}
+              
             >
               <ButtonLabel
                 buttonLabel={"Logout"}
@@ -168,9 +175,15 @@ const SideNavBar = ({
                   color: "black",
                 }}
               />
-            </Box>
+            </Grid>
+            </SideScroll>
+            </Grid>
           )}
-        </Box>
+            {/* {isOpen && (
+           
+          )}
+         */}
+        </Paper>
       </motion.div>
 
       <main className="main-child-container">{children}</main>

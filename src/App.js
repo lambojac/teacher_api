@@ -17,11 +17,14 @@ import QuestionAnswer from "./component/QuestionAnswer/QuestionAnswer";
 import ResultComponent from "./component/ResultComponent/ResultComponent";
 import { dashboardteacherData } from "./utils/fakedata/fakedata";
 import { useState } from "react";
+import{QueryClientProvider,QueryClient } from 'react-query'
 function App() {
-  const[user,setUser]=useState("admin")
-  console.log(user)
+  const[user,setUser]=useState("")
+  const queryClient=new QueryClient()
+  
   return (
-    <div className="App">
+    <QueryClientProvider client={queryClient}>
+       <div className="App">
       {/* {authRoute.map((each, index) => (
         <RoutePathComponent
           path={each?.path}
@@ -36,7 +39,7 @@ function App() {
        
       </Routes>
       {user==="admin"&&
-       <SideNavBar sideNavData={sideNavData} role="ADMIN">
+       <SideNavBar sideNavData={sideNavData} role="ADMIN" setUser={setUser}>
        <Routes>
        <Route path="/dashboard" element={<DashboardComponent data={dashboardcardData}/>} />
        <Route path="/teacher" element={<TeacherComponent/>} />
@@ -50,7 +53,7 @@ function App() {
      </SideNavBar>
       }
      {user==="teacher"&&
-      <SideNavBar sideNavData={sideNavDatas} role="Teacher" subType={true}>
+      <SideNavBar sideNavData={sideNavDatas} role="Teacher" subType={true} setUser={setUser}>
       <Routes>
       <Route path="/dashboard/dashboard-teacher" element={<DashboardComponent data={dashboardteacherData}/>} />
       <Route path="/dashboard/topic-teacher" element={<TopicComponent/>} />
@@ -69,6 +72,8 @@ function App() {
      
      
     </div>
+    </QueryClientProvider>
+   
   );
 }
 

@@ -70,7 +70,7 @@ export const sideNavDatas = [
     image: dashboardImage,
    icon:<HomeIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "dashboard-teacher",
-    type:"none"
+    type:false
   },
 
   {
@@ -78,14 +78,14 @@ export const sideNavDatas = [
     image: arrowRightImage,
   icon:<ArrowRightOutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "topic-teacher",
-    type:"drop"
+    type:true
   },
   {
     label: "Questionnaires",
     image: QuestionsImage,
     icon:<QuestionMarkIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "question-teacher",
-    type:"none"
+    type:false
   },
 
   {
@@ -93,13 +93,13 @@ export const sideNavDatas = [
     image: resultImage,
    icon:<StickyNote2OutlinedIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "result-teacher",
-    type:"none"
+    type:false
   },
   {
     label: "Setting",
     image: settingImage,
     icon:<SettingsIcon sx={{fontSize:"2em",color:"white"}}/>,
     values: "setting-teacher",
-    type:"none"
+    type:false
   },
 ];
